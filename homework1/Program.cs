@@ -6,13 +6,10 @@ class Program
 {
     static void Main()
     {
-
-
-       
-        var msg=string.Empty;
+        var msg = string.Empty;
         bool isNumber;
-        var firstValue=0;
-        var secondValue=0;
+        var firstValue = 0;
+        var secondValue = 0;
 
         //input first
         Console.WriteLine("Enter first number");
@@ -21,15 +18,11 @@ class Program
         {
             Console.WriteLine($"You enter: {firstValue}");
 
-        } 
+        }
         else
         {
-         
             Console.WriteLine("Error: In is not a number!");
-         
         }
-
-
 
         Console.WriteLine("Enter second number");
         msg = Console.ReadLine();
@@ -42,31 +35,27 @@ class Program
         {
             Console.WriteLine("Error: In is not a number!");
         }
-     
-       
- 
 
         Console.WriteLine("Enter math operator: +, -, *, /, %");
         string mathOperator = Console.ReadLine();
 
-        //summa
         if (mathOperator == "+")
         {
-            
+
             Console.WriteLine(firstValue + secondValue);
         }
         else if
 
             (mathOperator == "-")
         {
-           
+
             Console.WriteLine(firstValue - secondValue);
         }
         else if
 
             (mathOperator == "*")
         {
-            
+
             Console.WriteLine(firstValue * secondValue);
         }
         else if
@@ -79,7 +68,7 @@ class Program
             }
             else
             {
-                
+
                 Console.WriteLine((double)firstValue / secondValue);
             }
         }
@@ -87,8 +76,8 @@ class Program
 
             (mathOperator == "%")
         {
-            
+
             Console.WriteLine(firstValue % secondValue);
-        } 
+        }
     }
 }
