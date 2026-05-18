@@ -11,7 +11,6 @@ namespace hw1task3
             var kpi = 0;
             var incomeTax = 13;
             var pensionFund = 1;
-            bool isNumber;
             var msg = string.Empty;
             var bonus = 0;
             decimal totalSalary = 0;
@@ -27,7 +26,7 @@ namespace hw1task3
             Console.WriteLine("Enter salary");
             msg = Console.ReadLine();
 
-            if (isNumber = decimal.TryParse(msg, out salary))
+            if (decimal.TryParse(msg, out salary))
             {
                 Console.WriteLine($"Your salary: {salary}");
             }
@@ -39,7 +38,7 @@ namespace hw1task3
             Console.WriteLine("Enter kpi");
             msg = Console.ReadLine();
 
-            if (isNumber = int.TryParse(msg, out kpi))
+            if (int.TryParse(msg, out kpi))
             {
                 Console.WriteLine($"Your kpi: {kpi}");
             }
