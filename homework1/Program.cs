@@ -5,8 +5,7 @@ class Program
 {
     static void Main()
     {
-        var msg = string.Empty;
-        bool isNumber;
+        string msg = string.Empty;
         var firstValue = 0;
         var secondValue = 0;
 
@@ -14,10 +13,9 @@ class Program
         Console.WriteLine("Enter first number");
         msg = Console.ReadLine();
 
-        if (isNumber = int.TryParse(msg, out firstValue))
+        if (int.TryParse(msg, out firstValue))
         {
             Console.WriteLine($"You enter: {firstValue}");
-
         }
         else
         {
@@ -26,8 +24,8 @@ class Program
 
         Console.WriteLine("Enter second number");
         msg = Console.ReadLine();
-        isNumber = int.TryParse(msg, out secondValue);
-        if (isNumber = int.TryParse(msg, out secondValue))
+
+        if (int.TryParse(msg, out secondValue))
         {
             Console.WriteLine($"You enter: {secondValue}");
         }
@@ -43,21 +41,15 @@ class Program
         {
             Console.WriteLine(firstValue + secondValue);
         }
-        else if
-
-            (mathOperator == "-")
+        else if (mathOperator == "-")
         {
             Console.WriteLine(firstValue - secondValue);
         }
-        else if
-
-            (mathOperator == "*")
+        else if (mathOperator == "*")
         {
             Console.WriteLine(firstValue * secondValue);
         }
-        else if
-
-            (mathOperator == "/")
+        else if (mathOperator == "/")
         {
             if (secondValue == 0)
             {
@@ -68,10 +60,7 @@ class Program
                 Console.WriteLine((double)firstValue / secondValue);
             }
         }
-        else if
-
-            (mathOperator == "%")
-
+        else if (mathOperator == "%")
         {
             if (secondValue == 0)
             {

@@ -29,15 +29,15 @@
 
             Console.Write("Are you VIP client? (y/n): ");
             string answerVip = Console.ReadLine();
-            isVip = answerVip == "y";
+            isVip = answerVip.Equals("y");
 
             Console.Write("Is it your first order? (y/n): ");
             string answerFirstOrder = Console.ReadLine();
-            isFirstOrder = answerFirstOrder == "y";
+            isFirstOrder = answerFirstOrder.Equals("y");
 
             Console.Write("Do you has a promo? (y/n): ");
             string answerPromo = Console.ReadLine();
-            hasPromo = answerPromo == "y";
+            hasPromo = answerPromo.Equals("y");
 
             if (isVip)
             {
