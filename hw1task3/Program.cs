@@ -11,20 +11,22 @@ namespace hw1task3
             var kpi = 0;
             var incomeTax = 13;
             var pensionFund = 1;
-            decimal issued;
             bool isNumber;
             var msg = string.Empty;
             var bonus = 0;
             decimal totalSalary = 0;
 
-            Console.WriteLine("Enter employee name");
+            Console.Write("Enter employee name");
             name = Console.ReadLine();
-            if (Regex.IsMatch(name, @"^[a-zA-Z]+$") == false)
+
+            if (Regex.IsMatch(name, @"^[a-zA-Z]+$"))
             {
-                Console.WriteLine("Name is not write!");
+                Console.WriteLine("Name is not correct!");
             }
+
             Console.WriteLine("Enter salary");
             msg = Console.ReadLine();
+
             if (isNumber = decimal.TryParse(msg, out salary))
             {
                 Console.WriteLine($"Your salary: {salary}");
@@ -37,10 +39,10 @@ namespace hw1task3
 
             Console.WriteLine("Enter kpi");
             msg = Console.ReadLine();
+
             if (isNumber = int.TryParse(msg, out kpi))
             {
                 Console.WriteLine($"Your kpi: {kpi}");
-
             }
             else
             {
@@ -62,8 +64,6 @@ namespace hw1task3
             totalSalary = salary + (salary * bonus / 100);
 
             Console.WriteLine($"Your issued: {(totalSalary) - ((totalSalary) * incomeTax / 100) - ((totalSalary) * pensionFund / 100)}");
-
-
         }
     }
 }

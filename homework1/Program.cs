@@ -1,6 +1,5 @@
 ﻿//task1 +.-.*./.%.0exit
-using System.ComponentModel.Design;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 class Program
 {
@@ -14,6 +13,7 @@ class Program
         //input first
         Console.WriteLine("Enter first number");
         msg = Console.ReadLine();
+
         if (isNumber = int.TryParse(msg, out firstValue))
         {
             Console.WriteLine($"You enter: {firstValue}");
@@ -41,21 +41,18 @@ class Program
 
         if (mathOperator == "+")
         {
-
             Console.WriteLine(firstValue + secondValue);
         }
         else if
 
             (mathOperator == "-")
         {
-
             Console.WriteLine(firstValue - secondValue);
         }
         else if
 
             (mathOperator == "*")
         {
-
             Console.WriteLine(firstValue * secondValue);
         }
         else if
@@ -68,16 +65,22 @@ class Program
             }
             else
             {
-
                 Console.WriteLine((double)firstValue / secondValue);
             }
         }
         else if
 
             (mathOperator == "%")
-        {
 
-            Console.WriteLine(firstValue % secondValue);
+        {
+            if (secondValue == 0)
+            {
+                Console.WriteLine("Error: Devision by zero!");
+            }
+            else
+            {
+                Console.WriteLine(firstValue % secondValue);
+            }
         }
     }
 }
