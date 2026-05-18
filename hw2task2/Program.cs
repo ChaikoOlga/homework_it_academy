@@ -14,26 +14,47 @@
             int baseHours = 160;
             int extraHours = 0;
             var tax = 10;
+            decimal bonus = 0;
 
             Console.Write("Enter dayRate: ");
             var msgDayRate = Console.ReadLine();
-            decimal.TryParse(msgDayRate, out dayRate);
+
+            if (!decimal.TryParse(msgDayRate, out dayRate))
+            {
+                Console.Write("You entered an incorrect value. The programm will be completed.");
+                return;
+            }
 
             Console.Write("Enter dayHours: ");
             var msgDay = Console.ReadLine();
-            int.TryParse(msgDay, out dayHours);
+
+            if (!int.TryParse(msgDay, out dayHours))
+            {
+                Console.Write("You entered an incorrect value. The programm will be completed.");
+                return;
+            }
 
             Console.Write("Enter nightRate: ");
             var msgNightRate = Console.ReadLine();
-            decimal.TryParse(msgNightRate, out nightRate);
+
+            if (!decimal.TryParse(msgNightRate, out nightRate))
+            {
+                Console.Write("You entered an incorrect value. The programm will be completed.");
+                return;
+            }
 
             Console.Write("Enter nightHours: ");
             var msgNight = Console.ReadLine();
-            int.TryParse(msgNight, out nightHours);
+
+            if (!int.TryParse(msgNight, out nightHours))
+            {
+                Console.Write("You entered an incorrect value. The programm will be completed.");
+                return;
+            }
 
             Console.Write("Are you work on weekend? (y/n): ");
             string msg = Console.ReadLine();
-            weekendShift = msg == "y";
+            weekendShift = msg.Equals("y");
 
             totalHours = dayHours + nightHours;
             extraHours = totalHours - baseHours;
@@ -41,12 +62,12 @@
 
             if (weekendShift)
             {
-                salary = salary + (salary / 2);
+                bonus = salary / 2;
             }
 
             if (totalHours >= baseHours)
             {
-                salary = (dayHours * dayRate) + (nightHours * nightRate) + (extraHours * (dayRate * 1.5m));
+                salary = (dayHours * dayRate) + (nightHours * nightRate) + (extraHours * (dayRate * 1.5m) + bonus);
             }
 
             Console.WriteLine($"Your GROSS: {salary}");

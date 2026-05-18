@@ -12,15 +12,20 @@
             var firstOrder = 5;
             var promo = 10;
             var limitSale = 20;
-            int totalSale=0;
+            int totalSale = 0;
             decimal delivery = 1200;
             decimal totalBill;
 
             Console.Write("Enter amount: ");
             var msg = Console.ReadLine();
-            decimal.TryParse(msg, out amount);
 
-            Console.Write("Are you VIP cient? (y/n): ");
+            if (!decimal.TryParse(msg, out amount))
+            {
+                Console.Write("You entered an incorrect value. The programm will be completed.");
+                return;
+            }
+
+            Console.Write("Are you VIP client? (y/n): ");
             string answerVip = Console.ReadLine();
             isVip = answerVip == "y";
 
@@ -48,13 +53,13 @@
             {
                 totalSale = limitSale;
             }
-            if (amount>=15000)
+            if (amount >= 15000)
             {
                 delivery = 0;
             }
             totalBill = amount - (amount * totalSale / 100) + delivery;
 
-            Console.WriteLine($"Total sale %: {totalSale}" );
+            Console.WriteLine($"Total sale %: {totalSale}");
             Console.WriteLine($"Delivery: {delivery}");
             Console.WriteLine($"Total bill: {totalBill}");
             Console.ReadLine();
