@@ -1,4 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿
 
 namespace hw3task1
 {
@@ -7,9 +7,14 @@ namespace hw3task1
         static void Main(string[] args)
         {
             Console.Write("Enter text: ");
-            var msg = Console.ReadLine();
-            string text = msg;
+            string text = Console.ReadLine();
             string vowels = "euoaiEUOAI";
+
+            if (string.IsNullOrEmpty(text))
+            {
+                Console.WriteLine("text is missing");
+                return;
+            }
 
             int count = 0;
 
@@ -22,7 +27,6 @@ namespace hw3task1
             }
 
             Console.WriteLine($"Number of vovels: {count}");
-
         }
     }
 }

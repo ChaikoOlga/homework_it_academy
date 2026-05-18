@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-
             Console.Write("Enter score: ");
             string msg = Console.ReadLine();
 
@@ -17,11 +16,15 @@
                     >= 70 => "C",
                     >= 60 => "D",
                     _ => "F"
-
                 };
 
                 Console.WriteLine(grade);
             }
+            else
+            {
+                Console.WriteLine("Error: You enter an incorrect number!");
+            }
+            ;
         }
     }
 }
