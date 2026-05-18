@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-bool isNumber;
 Console.WriteLine("Enter age");
 var msg = Console.ReadLine();
 

@@ -19,7 +19,7 @@ namespace hw1task3
             Console.Write("Enter employee name");
             name = Console.ReadLine();
 
-            if (Regex.IsMatch(name, @"^[a-zA-Z]+$"))
+            if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
             {
                 Console.WriteLine("Name is not correct!");
             }
@@ -30,7 +30,6 @@ namespace hw1task3
             if (isNumber = decimal.TryParse(msg, out salary))
             {
                 Console.WriteLine($"Your salary: {salary}");
-
             }
             else
             {

@@ -5,16 +5,18 @@
         static void Main(string[] args)
         {
             decimal amount = 0;
+            decimal delivery = 1200;
+            decimal totalBill;
+
             bool isVip = false;
             bool isFirstOrder = false;
             bool hasPromo = false;
+
             var vip = 7;
             var firstOrder = 5;
             var promo = 10;
             var limitSale = 20;
-            int totalSale = 0;
-            decimal delivery = 1200;
-            decimal totalBill;
+            var totalSale = 0;
 
             Console.Write("Enter amount: ");
             var msg = Console.ReadLine();

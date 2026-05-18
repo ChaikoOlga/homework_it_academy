@@ -19,7 +19,7 @@ namespace hw3task3
                 if (string.IsNullOrEmpty(login))
                 {
                     Console.WriteLine("Login is empty");
-                    return;
+                    break;
                 }
 
                 Console.Write("Enter password: ");
@@ -28,7 +28,7 @@ namespace hw3task3
                 if (string.IsNullOrEmpty(password))
                 {
                     Console.WriteLine("Password is empty");
-                    return;
+                    break;
                 }
 
                 if (login.Equals(correctLogin) && password.Equals(correctPassword))

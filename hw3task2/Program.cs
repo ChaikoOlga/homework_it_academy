@@ -24,7 +24,6 @@
             {
                 Console.WriteLine("Error: You enter an incorrect number!");
             }
-            ;
         }
     }
 }
