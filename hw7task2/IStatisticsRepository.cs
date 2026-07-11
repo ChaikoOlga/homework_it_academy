@@ -4,8 +4,8 @@ using System.Text;
 
 namespace hw7task2
 {
-    public interface IOrderRepository : ICrudRepository<Order>
+    public interface IStatisticsRepository
     {
-
+        int GetCount();
     }
 }

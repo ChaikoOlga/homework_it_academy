@@ -6,8 +6,9 @@ namespace hw7task2
 {
     public class AdminOrdersController
     {
-        private IOrderService service;
-        public AdminOrdersController(IOrderService service)
+
+        private OrderService service;
+        public AdminOrdersController(OrderService service)
         {
             this.service = service;
         }
@@ -15,9 +16,11 @@ namespace hw7task2
         {
             return service.Update(id, dto);
         }
+
         public void Delete(int id)
         {
             service.Delete(id);
         }
+
     }
 }

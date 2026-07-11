@@ -4,40 +4,73 @@ using System.Text;
 
 namespace hw7task2
 {
-    public class OrderService : IOrderService
+    public class OrderService
     {
-        private List<Order> orders = new List<Order>();
+
+        private IOrderRepository repository;
+
+        public OrderService(IOrderRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public Order Create(OrderDto dto)
         {
-            Order order = new Order();
+            try
+            {
+                Order order = new Order();
 
-            order.Id = orders.Count + 1;
-            order.ProductName = dto.ProductName;
-            order.Price = dto.Price;
+                order.ProductName = dto.ProductName;
+                order.Price = dto.Price;
 
-            orders.Add(order);
-
-            return order;
+                return repository.Create(order);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public List<Order> GetAll()
         {
-            return orders;
+            try
+            {
+                return repository.GetAll();
+            }
+            catch
+            {
+                throw;
+            }
         }
+
         public Order Update(int id, OrderDto dto)
         {
-            Order order = orders.Find(x => x.Id == id);
+            try
+            {
+                Order order = new Order();
 
-            order.ProductName = dto.ProductName;
-            order.Price = dto.Price;
+                order.ProductName = dto.ProductName;
+                order.Price = dto.Price;
 
-            return order;
+
+                return repository.Update(id, order);
+            }
+            catch
+            {
+                throw;
+            }
         }
+
         public void Delete(int id)
         {
-            Order order = orders.Find(x => x.Id == id);
-
-            orders.Remove(order);
+            try
+            {
+                repository.Delete(id);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

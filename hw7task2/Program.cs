@@ -2,42 +2,52 @@
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            IOrderService service = new OrderService();
+            try
+            {
 
+                OrderRepository repository = new OrderRepository();
 
-            OrdersController ordersController =
-                new OrdersController(service);
+                OrderService service = new OrderService(repository);
 
+                OrdersController controller =
+                    new OrdersController(service);
 
-            AdminOrdersController adminController =
-                new AdminOrdersController(service);
+                AdminOrdersController adminController =
+                    new AdminOrdersController(service);
 
+                OrderDto dto = new OrderDto();
 
-            OrderDto dto = new OrderDto();
+                dto.ProductName = "Laptop";
+                dto.Price = 1000;
 
-            dto.ProductName = "Laptop";
-            dto.Price = 1000;
+                controller.Create(dto);
 
-            Order order = ordersController.Create(dto);
+                foreach (Order order in controller.GetAll())
+                {
+                    Console.WriteLine(order.ProductName);
+                }
 
-            Console.WriteLine("Created order: " + order.ProductName);
+                OrderDto update = new OrderDto();
 
-            var orders = ordersController.GetAll();
+                update.ProductName = "Phone";
+                update.Price = 500;
 
-            Console.WriteLine("Orders count: " + orders.Count);
+                adminController.Update(1, update);
 
-            OrderDto updateDto = new OrderDto();
+                adminController.Delete(1);
 
-            updateDto.ProductName = "Phone";
-            updateDto.Price = 500;
+                Console.WriteLine("Finished");
 
-            adminController.Update(1, updateDto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            adminController.Delete(1);
-
-            Console.WriteLine("Order deleted");
         }
+
     }
 }
